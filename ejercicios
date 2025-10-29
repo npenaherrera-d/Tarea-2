@@ -1,0 +1,235 @@
+//Bloque1
+//1. Contar caracteres de una frase publicitaria
+function caracteres() {
+    entrada = prompt("Ingrese frase")
+    c = 0
+    for (i=0; i<entrada.length; i++) {
+    if (entrada[i] != " ") c++
+    }
+    console.log("La frase tiene " + c + " caracteres")
+}
+caracteres()
+
+//2. contar apariciones de una vocal en un titulo
+function vocal() {
+    entrada = prompt("Ingrese un titulo")
+    v = prompt("Ingrese una vocal a buscar")
+    c = 0
+    for (i=0; i<entrada.length; i++) {
+    if (entrada[i] == vocal) c++
+    }
+    console.log("La vocal " + v + " aparece " + c + " veces")
+}
+vocal()
+
+//3. Invertir un nombre de producto
+function invertir() {
+    entrada = prompt("Ingrese nombre de producto")
+    for (i= entrada.length;i>= 1; i--){
+        resultado = ""
+        resultado = resultado + entrada[i]
+    }
+    console.log("El nombre invertido es: " + resultado)
+}
+invertir()
+
+//4. comparar nombres de ciudades por longitud
+function ciudades() {
+    ciudad1 = prompt("Ingrese el nombre de la primera ciudad")
+    ciudad2 = prompt("Ingrese el nombre de la segunda ciudad")
+    if (ciudad1.length > ciudad2.length) {
+        console.log("La ciudad con el nombre mas largo es: " + ciudad1)
+    } else (ciudad2.length > ciudad1.length) {
+        console.log("La ciudad con el nombre mas largo es: " + ciudad2)
+    }
+}
+ciudades()
+
+//5. obtener iniciales de un cargo profesional
+function inicialesCargo() {
+  let cargo = prompt("Ingrese un cargo profesional:");
+  let partes = cargo.split(" ");
+  let iniciales = partes.map(p => p[0].toUpperCase()).join(".") + ".";
+  alert(`Iniciales: ${iniciales}`);
+}
+inicialesCargo()
+
+//Bloque2
+// 1. Contar caracteres de varias frases
+function contarCaracteresArreglo() {
+  let frases = ["La tecnología avanza", "Innovar para crecer", "Calidad garantizada"];
+  frases.forEach(f => alert(`"${f}" → ${f.length} caracteres`));
+}
+
+// 2. Contar apariciones de una vocal en cada título
+function contarVocalArreglo() {
+  let titulos = ["Programación avanzada", "Desarrollo web", "Análisis de datos"];
+  let vocal = prompt("Ingrese la vocal a contar:");
+  titulos.forEach(t => {
+    let c = 0;
+    for (let l of t.toLowerCase()) if (l === vocal.toLowerCase()) c++;
+    alert(`"${t}" → ${c} veces la '${vocal}'`);
+  });
+}
+contarVocalArreglo()
+
+// 3. Invertir los nombres de varios productos
+function invertirProductosArreglo() {
+  let productos = ["Laptop", "Celular", "Tablet"];
+  productos.forEach(p => alert(`"${p}" → "${p.split("").reverse().join("")}"`));
+}
+invertirProductosArreglo()
+
+// 4. Comparar longitudes de nombres de ciudades
+function ciudadMasLarga() {
+  let ciudades = ["Milagro", "Guayaquil", "Quito", "Cuenca"];
+  let mayor = ciudades[0];
+  for (let i = 1; i < ciudades.length; i++) {
+    if (ciudades[i].length > mayor.length) mayor = ciudades[i];
+  }
+  alert(`La ciudad con más letras es '${mayor}' (${mayor.length} letras).`);
+}
+ciudadMasLarga()
+
+// 5. Obtener iniciales de varios cargos profesionales
+function inicialesCargosArreglo() {
+  let cargos = ["Director General Académico", "Jefe de Laboratorio", "Asistente Administrativo"];
+  cargos.forEach(c => {
+    let iniciales = c.split(" ").map(p => p[0].toUpperCase()).join(".") + ".";
+    alert(`"${c}" → ${iniciales}`);
+  });
+}
+inicialesCargosArreglo()
+
+//Bloque3
+// 1. Promedio de calificaciones mayores a 70
+function promedioMayores70() {
+  let n = parseInt(prompt("Ingrese número de calificaciones:"));
+  let suma = 0, cont = 0;
+  for (let i = 0; i < n; i++) {
+    let nota = parseFloat(prompt(`Ingrese nota ${i+1}:`));
+    if (nota >= 70) {
+      suma += nota;
+      cont++;
+    }
+  }
+  let prom = cont > 0 ? (suma / cont).toFixed(2) : 0;
+  alert(`Promedio de notas ≥ 70: ${prom}`);
+}
+promedioMayores70()
+
+// 2. Contar cuántos números negativos se ingresan
+function contarNegativos() {
+  let n = parseInt(prompt("Ingrese cuántos números desea ingresar:"));
+  let cont = 0;
+  for (let i = 0; i < n; i++) {
+    let num = parseFloat(prompt(`Ingrese número ${i+1}:`));
+    if (num < 0) cont++;
+  }
+  alert(`Cantidad de negativos: ${cont}`);
+}
+contarNegativos()
+
+// 3. Promedio de edades: mayores vs menores
+function promedioEdades() {
+  let n = parseInt(prompt("Ingrese número de personas:"));
+  let sumMay = 0, contMay = 0, sumMen = 0, contMen = 0;
+  for (let i = 0; i < n; i++) {
+    let edad = parseInt(prompt(`Ingrese edad ${i+1}:`));
+    if (edad >= 18) { sumMay += edad; contMay++; }
+    else { sumMen += edad; contMen++; }
+  }
+  let promMay = contMay > 0 ? (sumMay / contMay).toFixed(2) : 0;
+  let promMen = contMen > 0 ? (sumMen / contMen).toFixed(2) : 0;
+  alert(`Promedio mayores: ${promMay}\nPromedio menores: ${promMen}`);
+}
+promedioEdades()
+
+// 4. Mostrar tabla de multiplicar
+function tablaMultiplicar() {
+  let num = parseInt(prompt("Ingrese un número:"));
+  let tabla = `Tabla del ${num}:\n`;
+  for (let i = 1; i <= 10; i++) {
+    tabla += `${num} × ${i} = ${num * i}\n`;
+  }
+  alert(tabla);
+}
+tablaMultiplicar()
+
+// 5. Promedio de números pares e impares
+function promedioParesImpares() {
+  let n = parseInt(prompt("Ingrese cantidad de números:"));
+  let sumPar = 0, contPar = 0, sumImp = 0, contImp = 0;
+  for (let i = 0; i < n; i++) {
+    let num = parseFloat(prompt(`Ingrese número ${i+1}:`));
+    if (num % 2 === 0) { sumPar += num; contPar++; }
+    else { sumImp += num; contImp++; }
+  }
+  let promPar = contPar > 0 ? (sumPar / contPar).toFixed(2) : 0;
+  let promImp = contImp > 0 ? (sumImp / contImp).toFixed(2) : 0;
+  alert(`Promedio pares: ${promPar}\nPromedio impares: ${promImp}`);
+}
+promedioMayores70()
+
+// Bloque4
+// 1. Promedio de calificaciones mayores a 70
+function promedioMayores70Arreglo() {
+  let calificaciones = [65, 80, 90, 50, 75];
+  let suma = 0, cont = 0;
+  for (let n of calificaciones) {
+    if (n >= 70) { suma += n; cont++; }
+  }
+  let prom = cont > 0 ? (suma / cont).toFixed(2) : 0;
+  alert(`Promedio de calificaciones ≥ 70: ${prom}`);
+}
+promedioMayores70Arreglo()
+
+// 2. Contar números negativos en una lista
+function contarNegativosArreglo() {
+  let numeros = [3, -5, 0, 7, -1, -8];
+  let cont = 0;
+  for (let n of numeros) if (n < 0) cont++;
+  alert(`Cantidad de números negativos: ${cont}`);
+}
+contarNegativosArreglo()
+
+// 3. Promedio de edades: mayores vs menores
+function promedioEdadesArreglo() {
+  let edades = [17, 20, 35, 15, 18];
+  let sumMay = 0, contMay = 0, sumMen = 0, contMen = 0;
+  for (let e of edades) {
+    if (e >= 18) { sumMay += e; contMay++; }
+    else { sumMen += e; contMen++; }
+  }
+  let promMay = contMay > 0 ? (sumMay / contMay).toFixed(2) : 0;
+  let promMen = contMen > 0 ? (sumMen / contMen).toFixed(2) : 0;
+  alert(`Promedio de mayores: ${promMay}\nPromedio de menores: ${promMen}`);
+}
+promedioEdadesArreglo()
+
+// 4. Mostrar tablas de multiplicar de varios números
+function tablasMultiplicarArreglo() {
+  let numeros = [3, 5];
+  numeros.forEach(num => {
+    let tabla = `Tabla del ${num}:\n`;
+    for (let i = 1; i <= 10; i++) {
+      tabla += `${num * i}${i < 10 ? ", " : ""}`;
+    }
+    alert(tabla);
+  });
+}
+tablasMultiplicarArreglo()
+
+// 5. Promedio de números pares e impares
+function promedioParesImparesArreglo() {
+  let numeros = [2, 5, 8, 9, 4, 7];
+  let sumPar = 0, contPar = 0, sumImp = 0, contImp = 0;
+  for (let n of numeros) {
+    if (n % 2 === 0) { sumPar += n; contPar++; }
+    else { sumImp += n; contImp++; }
+  }
+  let promPar = contPar > 0 ? (sumPar / contPar).toFixed(2) : 0;
+  let promImp = contImp > 0 ? (sumImp / contImp).toFixed(2) : 0;
+  alert(`Promedio de pares: ${promPar}\nPromedio de impares: ${promImp}`);
+}
+promedioParesImparesArreglo() 
